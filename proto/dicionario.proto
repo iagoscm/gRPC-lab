@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package dicionario;
+
+service DicionarioService {
+  rpc AddPalavra (RequestPalavra) returns (RespostaPalavra);
+  rpc PrintaDicionario (PrintaRequest) returns (PrintaResposta);
+}
+
+message RequestPalavra {
+  string word = 1;
+}
+
+message RespostaPalavra {
+  string message = 1;
+}
+
+message PrintaRequest {}
+
+message PrintaResposta {
+  map<string, int32> dicionario = 1;
+}
